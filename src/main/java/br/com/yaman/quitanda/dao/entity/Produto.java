@@ -42,5 +42,55 @@ public class Produto {
     
     @Column(name = "PESO_MEDIO")
     private Double pesoMedio;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public TipoProduto getTipoProduto() {
+		return tipoProduto;
+	}
+
+	public void setTipoProduto(TipoProduto tipoProduto) {
+		this.tipoProduto = tipoProduto;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Double getCalorias() {
+		return calorias;
+	}
+
+	public void setCalorias(Double calorias) {
+		this.calorias = calorias;
+	}
+
+	public Double getPesoMedio() {
+		return pesoMedio;
+	}
+
+	public void setPesoMedio(Double pesoMedio) {
+		this.pesoMedio = pesoMedio;
+	}
+    
+    
 	
 }
