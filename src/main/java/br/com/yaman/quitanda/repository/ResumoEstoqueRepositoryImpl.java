@@ -19,12 +19,13 @@ public class ResumoEstoqueRepositoryImpl implements ResumoEstoqueRepository{
 	
 	@Override
 	public List<ResumoEstoque> findResumoEstoque() {
-		Query query = entityManager.createQuery("select sum(QTD_DISPONIVEL) as total, estoque.produto.tipoProduto.id as id from Estoque estoque "+
-							" join Produto as produto on estoque.produto.tipoProduto.id = produto.id "+
-							" join TipoProduto as tipoProduto on tipoProduto.id = produto.tipoProduto.id "+
-							"group by(estoque.produto.tipoProduto.id)");
-		List<ResumoEstoque> retorno = query.getResultList();
-		return retorno;
+		Query query = entityManager.createQuery("SELECT SUM(e.quantidadeDisponivel) AS total, tp.nome AS nome "
+				+ "FROM Estoque e, Produto p, TipoProduto tp "
+				+ "WHERE p.id = e.produto.id AND e.produto.tipoProduto.id = tp.id "+
+							"group by(tp.nome)");
+		return query.getResultList();
 	}
+	
+	
 
 }
